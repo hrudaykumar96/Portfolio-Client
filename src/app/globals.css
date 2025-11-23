@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+body {
+  font-family: var(--font-manrope);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-monteserrat);
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+input[type="text"],
+input[type="submit"],
+a::placeholder {
+  text-transform: capitalize;
+}
+@layer utilities {
+  section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+}
+
+@theme {
+  --background-color: #fff;
+  --text-color: #6366f1;
+  --header-background-color: #fff;
+  --button-color: #fff;
+  --button-backgroundColor: #6366f1;
+  --button-backgroundColor-hover: #4f46e5;
+  --background-footer: #f0eded;
+  --link-text: #4b5563;
+  --link-text-hover: #111827;
+  --theme-buttons-bg: #f3f4f6;
+  --theme-buttons-text: #050505;
+}
+
+@layer theme {
+  .dark {
+    --background-color: #1f2937;
+    --text-color: #14b8a6;
+    --header-background-color: #111827;
+    --button-backgroundColor-hover: #6366f1;
+    --button-color: #14b8a6;
+    --button-backgroundColor: #1f2937;
+    --button-backgroundColor-hover: #0d9488;
+    --background-footer: #111827;
+    --link-text: #9ca3af;
+    --link-text-hover: #fff;
+    --theme-buttons-bg: #1f2937;
+    --theme-buttons-text: #4b5563;
+  }
+}
+
+#particles canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
