@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, ReactNode, useState, useContext } from "react";
+import { createContext, ReactNode, useState, useContext, Dispatch, SetStateAction } from "react";
 
 interface Alert {
   message: string | null;
@@ -9,6 +9,7 @@ interface Alert {
 
 interface AlertContextType {
   alerts: Alert;
+  setAlerts: Dispatch<SetStateAction<Alert>>;
   showAlert: (
     message: string,
     type?: "success" | "error" | "info" | "warning"
@@ -32,7 +33,7 @@ export const AlertContextProvider = ({ children }: AlertProviderProps) => {
   };
 
   return (
-    <AlertContext.Provider value={{ alerts, showAlert }}>
+    <AlertContext.Provider value={{ alerts, setAlerts, showAlert }}>
       {children}
     </AlertContext.Provider>
   );

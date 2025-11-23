@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { AlertContextProvider } from "@/context/AlertContext";
 import Alerts from "@/components/Alerts";
 import ParticlesComponent from "@/components/Particles";
+import ChatBot from "@/components/ChatBot";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -40,6 +41,7 @@ export default function RootLayout({
             <Header />
             <ParticlesComponent id="particles" />
             {children}
+            <ChatBot />
             <BacktoTop />
             <Footer />
           </ThemeProvider>

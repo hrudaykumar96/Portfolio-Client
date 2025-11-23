@@ -5,11 +5,12 @@ import { FaExclamationTriangle } from "react-icons/fa";
 import { GoXCircleFill } from "react-icons/go";
 import { HiInformationCircle } from "react-icons/hi";
 import { useAlert } from "@/context/AlertContext";
+import { FaCircleXmark } from "react-icons/fa6";
 
 type Status = "success" | "error" | "warning" | "info";
 
 const Alerts = () => {
-  const { alerts } = useAlert();
+  const { alerts, setAlerts } = useAlert();
 
   const styles: Record<
     Status,
@@ -83,14 +84,31 @@ const Alerts = () => {
   if (!alerts?.message && !alerts?.type && !visible) return null;
 
   return (
-    <div className={`rounded-md ${visible?.bg} p-4 sticky top-0 left-0 right-0 z-50`}>
+    <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-3 items-center w-full">
       {alerts?.message && alerts?.type && (
-        <div className="flex justify-center">
+        <div
+          className={`rounded-md ${visible?.bg} p-4 flex items-center shadow-md animate-slideIn`}
+        >
           <div className="shrink-0">{visible?.icon}</div>
-          <div className="ml-3">
+          <div className="ml-3 flex-1">
             <p className={`text-sm font-medium capitalize ${visible?.text}`}>
               {alerts.message}
             </p>
+          </div>
+          <div className="ml-auto">
+            <button
+              type="button"
+              onClick={() =>
+                setAlerts({
+                  message: null,
+                  type: null,
+                })
+              }
+              className={`inline-flex rounded-md ${visible?.closebtnBg} p-1.5 ${visible?.closebtnColor} hover:${visible?.btnHover} focus-visible:ring-2 focus-visible:ring-${visible?.focusVisible} focus-visible:ring-offset-2 focus-visible:ring-offset-${visible?.ringOffset} focus-visible:outline-hidden`}
+            >
+              <span className="sr-only">Dismiss</span>
+              <FaCircleXmark />
+            </button>
           </div>
         </div>
       )}
