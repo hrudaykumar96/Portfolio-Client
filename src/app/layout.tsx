@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Manrope, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import BacktoTop from "@/components/BacktoTop";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { AlertContextProvider } from "@/context/AlertContext";
@@ -43,7 +42,6 @@ export default function RootLayout({
             {children}
             <ChatBot />
             <BacktoTop />
-            <Footer />
           </ThemeProvider>
         </AlertContextProvider>
       </body>

@@ -76,6 +76,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }, [theme]);
 
   const toggleTheme = (newMode: ThemeMode) => {
+    if(mode === newMode) return;
     setMode(newMode);
     showAlert(`${newMode} theme enabled`, "success");
   };
@@ -87,5 +88,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   );
 };
 
-// Hook
+
 export const useTheme = () => useContext(themeContext);

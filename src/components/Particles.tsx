@@ -20,16 +20,32 @@ const ParticlesComponent = ({ id }: { id?: string }) => {
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: { enable: true, mode: "push" },
-          onHover: { enable: true, mode: "grab" },
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
+          onHover: {
+            enable: true,
+            mode: "grab",
+          },
         },
         modes: {
-          push: { quantity: 4 },
-          grab: { distance: 150 },
+          push: {
+            distance: 200,
+            duration: 15,
+          },
+          grab: {
+            distance: 150,
+          },
         },
       },
+      background: {
+        color: theme === "dark" ? "#111827" : "#F3F4F6",
+      },
       particles: {
-        color: { value: theme === "dark" ? "#FFFFFF" : "#000000" },
+        color: {
+          value: theme === "dark" ? "#FFFFFF" : "#000000",
+        },
         links: {
           color: theme === "dark" ? "#FFFFFF" : "#000000",
           distance: 150,
@@ -40,15 +56,28 @@ const ParticlesComponent = ({ id }: { id?: string }) => {
         move: {
           direction: "none" as MoveDirection,
           enable: true,
-          outModes: { default: "bounce" as OutMode },
+          outModes: {
+            default: "bounce" as OutMode,
+          },
           random: true,
           speed: 3,
           straight: false,
         },
-        number: { value: 150, density: { enable: true, area: 800 } },
-        opacity: { value: 1 },
-        shape: { type: "circle" },
-        size: { value: { min: 1, max: 3 } },
+        number: {
+          density: {
+            enable: true,
+          },
+          value: 150,
+        },
+        opacity: {
+          value: 1.0,
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          value: { min: 1, max: 3 },
+        },
       },
       detectRetina: true,
     }),

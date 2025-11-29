@@ -34,8 +34,10 @@ const InputField = ({
           onChange={onChangeTextarea}
           placeholder={placeholder}
           onBlur={onBlurTextarea}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-            error ? "border-red-500" : "border-gray-300"
+          required={required}
+          disabled={disable}
+          className={`w-full px-4 text-(--link-text) py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-(--button-backgroundColor-hover) ${
+            error ? "border-red-500" : "border-(--link-text)"
           }`}
         ></textarea>
         {error && <p className="text-red-500 text-sm capitalize">{error}</p>}
@@ -45,7 +47,7 @@ const InputField = ({
   return (
     <>
       <input
-        type="text"
+        type={type}
         name={name}
         value={value}
         placeholder={placeholder}
@@ -53,8 +55,8 @@ const InputField = ({
         disabled={disable}
         onChange={onChangeInputarea}
         onBlur={onBlurInput}
-        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full px-4 text-(--link-text) py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-(--button-backgroundColor-hover) ${
+          error ? "border-red-500" : "border-(--link-text)"
         }`}
       />
       {error && <p className="text-red-500 text-sm capitalize">{error}</p>}
